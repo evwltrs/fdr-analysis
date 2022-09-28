@@ -1,0 +1,5 @@
+Engine:
+Eng[N]N1, N2, Ittc, FFLbsHr, OilPressPsi, OilTempC, N1Vib
+
+Fuel:
+FSCU1MainLbs, FSCU1RMainLbs, FSCU1AuxLbs, FSCU1TailLbs
