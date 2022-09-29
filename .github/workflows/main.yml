@@ -22,7 +22,7 @@ jobs:
             **/requirements*.txt
 
       - name: Install apt
-        if: runner.os == 'Linux'
+        if: runner.os == 'Linux' or runner.os == 'macOS'
         run: |
           sudo apt -y install libgeos-dev
 
