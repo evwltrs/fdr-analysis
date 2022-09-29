@@ -21,20 +21,20 @@ jobs:
           cache-dependency-path: |
             **/requirements*.txt
 
-      - name: Install libgeos
-        if: runner.os == 'Linux'
-        run: |
-          sudo apt-get -y install libgeos-dev
+#       - name: Install libgeos
+#         if: runner.os == 'Linux'
+#         run: |
+#           sudo apt-get -y install libgeos-dev
           
-      - name: Install libgeos mac
-        if: runner.os == 'macOS'
-        run: |
-          brew update
-          brew install geos
+#       - name: Install libgeos mac
+#         if: runner.os == 'macOS'
+#         run: |
+#           brew update
+#           brew install geos
 
       - name: Install Dependencies
         run: |
-          pip install -r requirements.txt
+          pip install matplotlib mplcursors pandas pysimplegui
 
       - name: Build Executable
         uses: Nuitka/Nuitka-Action@v0.4
