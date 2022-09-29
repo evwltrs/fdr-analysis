@@ -23,10 +23,12 @@ jobs:
 
       - name: Install Dependencies
         run: |
+          sudo apt -y install libgeos-dev
           pip install -r requirements.txt
 
       - name: Build Executable
         uses: Nuitka/Nuitka-Action@v0.4
+        if: always()
         with:
           script-name: fdr-analysis
           onefile: true
@@ -35,6 +37,7 @@ jobs:
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v3
+        if: always()
         with:
           name: ${{ runner.os }} Build
           path: |
