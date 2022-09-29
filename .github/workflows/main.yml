@@ -23,7 +23,7 @@ jobs:
 
       - name: Install apt
         run: |
-          sudo apt -y install libgeos-dev
+          sudo apt -y install libgeos-dev python3-wheel
 
       - name: Install Dependencies
         run: |
@@ -33,7 +33,7 @@ jobs:
         uses: Nuitka/Nuitka-Action@v0.4
         if: always()
         with:
-          script-name: ui/data
+          script-name: ui/data.py
           onefile: true
           standalone: true
           enable-plugins: tk-inter
