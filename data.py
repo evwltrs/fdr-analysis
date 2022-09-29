@@ -1,7 +1,7 @@
 import argparse
 import pandas
 import matplotlib
-matplotlib.use('Qt5Agg')
+matplotlib.use('QtAgg')
 import matplotlib.pyplot as plot
 import mplcursors
 import math
@@ -22,7 +22,7 @@ fdr = pandas.read_csv(args.file[0])
 
 print(fdr.index)
 
-figure, axes = plot.subplots(4, sharex = True)
+figure, axes = plot.subplots(5, sharex = True)
 
 # Altitude
 alt = fdr['ADC1AltStdFt']
@@ -30,6 +30,7 @@ alt = fdr['ADC1AltStdFt']
 ax1 = axes[0]
 ax1.plot(fdr.index / 60, alt, label='alt')
 ax1.set_ylim(0, math.ceil(alt.max() / 1000) * 1000 + 1000)
+ax1.set_ylabel('Ft')
 ax1.legend()
 ax1.set_title('Altitude')
 
@@ -41,6 +42,7 @@ ax2 = axes[1]
 ax2.plot(fdr.index / 60, ias, label='IAS')
 ax2.plot(fdr.index / 60 , gs, label='GS')
 ax2.set_ylim(0, gs.max() + 10)
+ax2.set_ylabel('Kts')
 ax2.legend()
 ax2.set_title('Speed')
 
@@ -55,9 +57,9 @@ ax3.plot(fdr.index / 60, eng1n1, label='Engine 1 N1')
 ax3.plot(fdr.index / 60, eng2n1, label='Engine 2 N1')
 ax3.plot(fdr.index / 60, eng1n2, label='Engine 1 N2')
 ax3.plot(fdr.index / 60 , eng2n2, label='Engine 2 N2')
-
-ax3.legend()
 ax3.set_ylim(0, 105)
+ax3.set_ylabel('%')
+ax3.legend()
 ax3.set_title('N speed')
 
 # Fuel flow
@@ -65,11 +67,28 @@ eng1ff = fdr['Eng1FFLbsHr']
 eng2ff = fdr['Eng2FFLbsHr']
 
 ax4 = axes[3]
-ax4.plot(fdr.index / 60, eng1ff, label='Engine 1 Fuel Flow')
-ax4.plot(fdr.index / 60, eng2ff, label='Engine 2 Fuel Flow')
+ax4.plot(fdr.index / 60, eng1ff, label='Engine 1')
+ax4.plot(fdr.index / 60, eng2ff, label='Engine 2')
 maxff = max(eng1ff.max(), eng2ff.max())
 ax4.set_ylim(0, math.ceil(maxff / 1000) * 1000)
+ax4.set_ylabel('Lbs/Hr')
+ax4.legend()
 ax4.set_title('Fuel Flow')
+
+# Fuel quantity
+fuelleft = fdr['FSCU1LMainLbs']
+fuelright = fdr['FSCU1RMainLbs']
+fuelaux = fdr['FSCU1AuxLbs']
+fueltail = fdr['FSCU1TailLbs']
+
+ax5 = axes[4]
+ax5.plot(fdr.index / 60, fuelleft, label='Left Main')
+ax5.plot(fdr.index / 60, fuelright, label='Right Main')
+maxfuel = max(fuelleft.max(), fuelright.max(), fuelaux.max(), fueltail.max())
+ax5.set_ylim(0, math.ceil(maxfuel / 1000) * 1000)
+ax5.set_ylabel('Lbs')
+ax5.legend()
+ax5.set_title('Fuel Quantity')
 
 mplcursors.cursor(multiple=True).connect(
     'add',
