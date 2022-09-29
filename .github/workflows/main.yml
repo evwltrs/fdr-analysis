@@ -42,7 +42,9 @@ jobs:
           script-name: ui/data.py
           onefile: true
           standalone: true
-          enable-plugins: tk-inter numpy
+          enable-plugins: |
+            tk-inter 
+            numpy
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v3
