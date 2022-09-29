@@ -104,3 +104,4 @@ mplcursors.cursor(multiple=True).connect(
 # plot.get_current_fig_manager().window.state('zoomed')
 
 plot.show()
+
