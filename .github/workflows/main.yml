@@ -42,7 +42,7 @@ jobs:
           script-name: ui/data.py
           onefile: true
           standalone: true
-          enable-plugins: |
+          enable-plugins:
             tk-inter 
             numpy
 
