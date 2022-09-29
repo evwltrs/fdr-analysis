@@ -24,12 +24,12 @@ jobs:
       - name: Install libgeos
         if: runner.os == 'Linux'
         run: |
-          sudo apt -y install libgeos-dev
+          sudo apt-get -y install libgeos-dev
           
       - name: Install libgeos mac
         if: runner.os == 'macOS'
         run: |
-          sudo apt -y install libgeos-dev
+          sudo apt-get -y install libgeos-dev
 
       - name: Install Dependencies
         run: |
