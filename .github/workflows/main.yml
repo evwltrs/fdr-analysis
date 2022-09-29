@@ -29,7 +29,8 @@ jobs:
       - name: Install libgeos mac
         if: runner.os == 'macOS'
         run: |
-          sudo apt-get -y install libgeos-dev
+          brew update
+          brew install geos
 
       - name: Install Dependencies
         run: |
