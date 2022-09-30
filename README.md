@@ -10,6 +10,9 @@
 
 `python3 gui.py`
 
+
+
+
 ## CLI
 
 Example:
@@ -20,3 +23,8 @@ Example:
 `-o` | File path for the output. Can be `x.png`, `x.jpg`, `x.svg`, `x.pdf` + others
 
 `-t` | Type of output to generate. Can be `graph` or `map`
+
+## Examples
+![gui](https://user-images.githubusercontent.com/20270765/193347644-e9353523-3634-4b5a-b93c-4bffe21ae17a.gif)
+![graph](https://user-images.githubusercontent.com/20270765/193347725-72698186-e32d-4bd3-927f-adeecedb7a52.png)
+![map](https://user-images.githubusercontent.com/20270765/193347739-39781187-79ae-418e-83de-c6faf4089d1e.png)
