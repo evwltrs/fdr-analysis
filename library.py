@@ -2,8 +2,6 @@ import pandas
 import math
 import matplotlib.pyplot as plot
 import mplcursors
-import cartopy.crs as ccrs
-import cartopy.feature as cfeature
 
 def graph(file):
 
@@ -102,6 +100,9 @@ def graph(file):
     return figure
 
 def maps(file):
+    import cartopy.crs as ccrs
+    import cartopy.feature as cfeature
+
     fdr = pandas.read_csv(file)
 
     figure = plot.figure(figsize=(20, 20))
