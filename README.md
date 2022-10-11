@@ -6,6 +6,9 @@
 
 `pip install -r requirements.txt`
 
+### Windows
+> On windows you will be unable to use the GUI or generate maps. For graphs please run `pip install requirements-win.txt` and you are able to use the CLI with the `-t graph` option only.
+
 ## GUI
 
 `python3 gui.py`
