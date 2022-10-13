@@ -69,6 +69,8 @@ def graph(file):
     ax5 = axes[4]
     ax5.plot(fdr.index / 60, fuelleft, label='Left Main')
     ax5.plot(fdr.index / 60, fuelright, label='Right Main')
+    ax5.plot(fdr.index / 60 , fuelaux, label='Aux')
+    ax5.plot(fdr.index / 60 , fueltail, label='Tail')
     maxfuel = max(fuelleft.max(), fuelright.max(), fuelaux.max(), fueltail.max())
     ax5.set_ylim(0, math.ceil(maxfuel / 1000) * 1000)
     ax5.set_ylabel('Lbs')
